@@ -16,15 +16,73 @@
     <form class="conteudo" id="matricular_aluno" method="POST" action="{{ route('matricular') }}">
         @csrf
 
-        <div class="msg alert alert-warning alert-dismissible horizontal-form-layout mt-2">
+        
+        <div class="row horizontal-form-layout">
+            <div class="col-xl-4 col-lg-6 col-12">
+                <div class="card card-inverse bg-warning">
+                    <div class="card-content">
+                        <div class="card-body">
+                            <div class="media">
+                                <div class="media-body text-left">
+                                    <h3 class="card-text">Rematrícula</h3>
+                                    <span>26/11/2020 à 08/12/2020</span>
+                                </div>
+                                <div class="media-right align-self-center">
+                                    <i class="ft-alert-triangle font-large-2 float-right"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>    
+            </div>
+
+            <div class="col-xl-4 col-lg-6 col-12">
+                <div class="card card-inverse bg-danger">
+                    <div class="card-content">
+                        <div class="card-body">
+                            <div class="media">
+                                <div class="media-body text-left">
+                                    <h3 class="card-text">Novos Alunos:</h3>
+                                    <span>A partir de 09/12/2020</span>
+                                </div>
+                                <div class="media-right align-self-center">
+                                    <i class="ft-user font-large-2 float-right"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>    
+            </div>
+
+            <div class="col-xl-4 col-lg-6 col-12">
+                <div class="card card-inverse bg-primary">
+                    <div class="card-content">
+                        <div class="card-body">
+                            <div class="media">
+                                <div class="media-body text-left">
+                                    <h3 class="card-text">Ver Contrato</h3>
+                                    <a href="{{ URL::asset('files/contrato_de_prestacao_2021.pdf') }}"><span>Clique aqui</span></a>
+                                </div>
+                                <div class="media-right align-self-center fonticon-container">
+                                    <i class="ft-file font-large-2 float-right"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>    
+            </div>
+
+        </div>
+
+        {{-- <div class="msg alert alert-warning alert-dismissible horizontal-form-layout mt-2">
             <button type="button" class="close" data-dismiss="alert">×</button>
-            Período de Rematrícula: 
+            Período de Rematrícula: 26/11/2020 à 08/12/2020
         </div>
 
         <div class="msg alert alert-success alert-dismissible horizontal-form-layout">
             <button type="button" class="close" data-dismiss="alert">×</button>
-            Perído de Matrícula para Novos Alunos:
-        </div>
+            Início de Matrícula para Novos Alunos: 09/12/2020
+        </div> --}}
 
      <!-- Ficha de Matrícula -->
         <section class="horizontal-form-layout">
