@@ -16,6 +16,62 @@
     <form class="conteudo" id="matricular_aluno" method="POST" action="{{ route('matricular') }}">
         @csrf
 
+
+        <div class="horizontal-form-layout">
+        <div class="row match-height">
+            <div class="col-xl-12 col-lg-12">
+                <div class="card overflow-hidden">
+                    <div class="row">
+                        <div class="col-sm-6 col-12">
+                            <div class="card-img">
+                                <div id="carousel-example-2" class="carousel slide" data-ride="carousel">
+                                    <ol class="carousel-indicators">
+                                        <li data-target="#carousel-example-2" data-slide-to="0" class="active"></li>
+                                        <li data-target="#carousel-example-2" data-slide-to="1"></li>
+                                        <li data-target="#carousel-example-2" data-slide-to="2"></li>
+                                        <li data-target="#carousel-example-2" data-slide-to="3"></li>
+                                    </ol>
+                                    <div class="carousel-inner" role="listbox">
+                                        <div class="carousel-item active">
+                                            <img src="{{URL::asset('app-assets/img/1.png')}}" class="d-block w-100" alt="Habilidades para Compreender o Mundo">
+                                        </div>
+                                        <div class="carousel-item">
+                                            <img src="{{URL::asset('app-assets/img/2.png')}}" class="d-block w-100" alt="Desenvolvimento Cognitivo do Aluno">
+                                        </div>
+                                        <div class="carousel-item">
+                                            <img src="{{URL::asset('app-assets/img/3.png')}}" class="d-block w-100" alt="Interação com a Tecnologia">
+                                        </div>
+                                        <div class="carousel-item">
+                                            <img src="{{URL::asset('app-assets/img/4.png')}}" class="d-block w-100" alt="Formação do Cidadão do Século XXI">
+                                        </div>
+                                    </div>
+                                    <a class="carousel-control-prev" href="#carousel-example-2" role="button" data-slide="prev">
+                                        <span class="fa fa-angle-left icon-prev" aria-hidden="true"></span>
+                                        <span class="sr-only">Anterior</span>
+                                    </a>
+                                    <a class="carousel-control-next" href="#carousel-example-2" role="button" data-slide="next">
+                                        <span class="fa fa-angle-right icon-next" aria-hidden="true"></span>
+                                        <span class="sr-only">Próximo</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-12 d-flex align-items-center">
+                            <div class="card-body">
+                                <div class="align-self-center" id="menu-navegacao">
+                                    <div class="px-3">
+                                        <h4 class="card-title mb-3">RENOVE A MATRÍCULA PARA 2021</h4>
+                                        <p class="card-text">CONHEÇA NOSSA ESCOLA E MATRICULE SEU FILHO</p>
+                                        <a href="#ficha_matricula" class="btn btn-success">Matricule agora</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
         
         <div class="row horizontal-form-layout">
             <div class="col-xl-4 col-lg-6 col-12">
@@ -85,7 +141,7 @@
         </div> --}}
 
      <!-- Ficha de Matrícula -->
-        <section class="horizontal-form-layout">
+        <section id="ficha_matricula" class="horizontal-form-layout">
             <div class="row match-height">
                 <!-- Basic Form starts -->
                 <div class="col-12">
@@ -652,6 +708,21 @@
 
         $( document ).ready(function() {
             $('.field_pai').attr('required', true);
+        });
+
+        $(function() {
+            $('#menu-navegacao').find('a').click(function() {
+                if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+                    var target = $(this.hash);
+                    target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+                    if (target.length) {
+                        $('html,body').animate({
+                        scrollTop: target.offset().top
+                        }, 1000);
+                        return false;
+                    }
+                }
+            });
         });
 
         $('input[type=radio][name=dados_pai]').change(function() {
