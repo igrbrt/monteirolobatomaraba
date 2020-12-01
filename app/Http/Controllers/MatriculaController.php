@@ -10,7 +10,12 @@ use App\Models\Parente;
 use App\Models\Situacoes;
 use App\Models\Matricula;
 use Illuminate\Http\Request;
+use Response;
 use Yajra\DataTables\DataTables;
+
+require __DIR__ . '/../../../vendor/autoload.php';
+
+use PHPJasper\PHPJasper;
 
 class MatriculaController extends Controller
 {
@@ -160,7 +165,8 @@ class MatriculaController extends Controller
         ->addColumn(
             'actions',
             function ($aluno) {
-                $actions = '<a href='. route('ver_aluno', $aluno->id) .'><i class="icon-eye icons" data-size="18" title="Visualizar"></i></a>';
+                $actions = '<a href='. route('ver_aluno', $aluno->id) .'><i class="icon-eye icons" data-size="18" title="Visualizar"></i></a>
+                            <a href='. route('imprimir', $aluno->id) .'><i class="icon-printer icons ml-1" data-size="18" title="Impirmir"></i></a>';
                 return $actions;
             }
         )
@@ -195,7 +201,7 @@ class MatriculaController extends Controller
             'actions',
             function ($aluno) {
                 $actions = '<a href='. route('ver_aluno', $aluno->id) .'><i class="icon-eye icons" data-size="18" title="Visualizar"></i></a>
-                        <a href='. route('dashboard', $aluno->id) .'><i class="livicon" data-name="edit" data-size="18" data-loop="true" data-c="#428BCA" data-hc="#428BCA" title="update user"></i></a>';
+                            <a href='. route('imprimir', $aluno->id) .'><i class="icon-printer icons ml-1" data-size="18" title="Impirmir"></i></a>';
                 return $actions;
             }
         )
@@ -230,7 +236,7 @@ class MatriculaController extends Controller
             'actions',
             function ($aluno) {
                 $actions = '<a href='. route('ver_aluno', $aluno->id) .'><i class="icon-eye icons" data-size="18" title="Visualizar"></i></a>
-                        <a href='. route('dashboard', $aluno->id) .'><i class="livicon" data-name="edit" data-size="18" data-loop="true" data-c="#428BCA" data-hc="#428BCA" title="update user"></i></a>';
+                            <a href='. route('imprimir', $aluno->id) .'><i class="icon-printer icons ml-1" data-size="18" title="Impirmir"></i></a>';
                 return $actions;
             }
         )
@@ -238,5 +244,47 @@ class MatriculaController extends Controller
         ->make(true);
     }
 
-}
+    public function imprimir(Request $request)
+    {
+        $output = public_path() . '/reports/' . 'matricula';
+        $file = $output . '.pdf';
 
+        if (file_exists($file)) {
+            unlink($file);
+        }
+
+        $jdbc_dir = '"'. base_path() . '/vendor/geekcom/phpjasper/bin/jasperstarter/jdbc' . '"';
+        $options = [
+            'format' => ['pdf'],
+            'params' => ['DQ_UserInput' => $request->id],
+            'db_connection' => [
+                'driver' => env('DB_CONNECTION'), //mysql, ....
+                'username' => env('DB_USERNAME'),
+                'password' => env('DB_PASSWORD'),
+                'host' => env('DB_HOST'),
+                'database' => env('DB_DATABASE'),
+                'port' => env('DB_PORT'),
+                // 'jdbc_driver' => 'com.mysql.jdbc.Driver',
+                // 'jdbc_url' => 'jdbc:mysql://localhost/monteiro',
+                'jdbc_dir' => $jdbc_dir
+            ]
+        ];
+                    
+        $report = new PHPJasper;
+                
+        $report->process(
+            public_path() . '/reports/ficha_matricula.jrxml',
+            $output,
+            $options
+        )->execute();
+        
+        
+        $headers = array(
+            'Content-Type'=> 'application/pdf',
+          );
+        
+        return Response::download($file, 'matricula.pdf', $headers);
+            
+    }
+
+}

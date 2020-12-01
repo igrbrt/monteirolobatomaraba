@@ -18,51 +18,53 @@
 
 
         <div class="horizontal-form-layout">
-        <div class="row match-height">
-            <div class="col-xl-12 col-lg-12">
-                <div class="card overflow-hidden">
-                    <div class="row">
-                        <div class="col-sm-6 col-12">
-                            <div class="card-img">
-                                <div id="carousel-example-2" class="carousel slide" data-ride="carousel">
-                                    <ol class="carousel-indicators">
-                                        <li data-target="#carousel-example-2" data-slide-to="0" class="active"></li>
-                                        <li data-target="#carousel-example-2" data-slide-to="1"></li>
-                                        <li data-target="#carousel-example-2" data-slide-to="2"></li>
-                                        <li data-target="#carousel-example-2" data-slide-to="3"></li>
-                                    </ol>
-                                    <div class="carousel-inner" role="listbox">
-                                        <div class="carousel-item active">
-                                            <img src="{{URL::asset('app-assets/img/1.png')}}" class="d-block w-100" alt="Habilidades para Compreender o Mundo">
+            <div class="row match-height">
+                <div class="col-xl-12 col-lg-12">
+                    <div class="card overflow-hidden">
+                        <div class="row">
+                            <div class="col-sm-6 col-12">
+                                <div class="card-img">
+                                    <div id="carousel-example-2" class="carousel slide" data-ride="carousel">
+                                        <ol class="carousel-indicators">
+                                            <li data-target="#carousel-example-2" data-slide-to="0" class="active"></li>
+                                            <li data-target="#carousel-example-2" data-slide-to="1"></li>
+                                            <li data-target="#carousel-example-2" data-slide-to="2"></li>
+                                            <li data-target="#carousel-example-2" data-slide-to="3"></li>
+                                        </ol>
+                                        <div class="carousel-inner" role="listbox">
+                                            <div class="carousel-item active">
+                                                <img src="{{URL::asset('app-assets/img/1.png')}}" class="d-block w-100" alt="Habilidades para Compreender o Mundo">
+                                            </div>
+                                            <div class="carousel-item">
+                                                <img src="{{URL::asset('app-assets/img/2.png')}}" class="d-block w-100" alt="Desenvolvimento Cognitivo do Aluno">
+                                            </div>
+                                            <div class="carousel-item">
+                                                <img src="{{URL::asset('app-assets/img/3.png')}}" class="d-block w-100" alt="Interação com a Tecnologia">
+                                            </div>
+                                            <div class="carousel-item">
+                                                <img src="{{URL::asset('app-assets/img/4.png')}}" class="d-block w-100" alt="Formação do Cidadão do Século XXI">
+                                            </div>
                                         </div>
-                                        <div class="carousel-item">
-                                            <img src="{{URL::asset('app-assets/img/2.png')}}" class="d-block w-100" alt="Desenvolvimento Cognitivo do Aluno">
-                                        </div>
-                                        <div class="carousel-item">
-                                            <img src="{{URL::asset('app-assets/img/3.png')}}" class="d-block w-100" alt="Interação com a Tecnologia">
-                                        </div>
-                                        <div class="carousel-item">
-                                            <img src="{{URL::asset('app-assets/img/4.png')}}" class="d-block w-100" alt="Formação do Cidadão do Século XXI">
-                                        </div>
+                                        <a class="carousel-control-prev" href="#carousel-example-2" role="button" data-slide="prev">
+                                            <span class="fa fa-angle-left icon-prev" aria-hidden="true"></span>
+                                            <span class="sr-only">Anterior</span>
+                                        </a>
+                                        <a class="carousel-control-next" href="#carousel-example-2" role="button" data-slide="next">
+                                            <span class="fa fa-angle-right icon-next" aria-hidden="true"></span>
+                                            <span class="sr-only">Próximo</span>
+                                        </a>
                                     </div>
-                                    <a class="carousel-control-prev" href="#carousel-example-2" role="button" data-slide="prev">
-                                        <span class="fa fa-angle-left icon-prev" aria-hidden="true"></span>
-                                        <span class="sr-only">Anterior</span>
-                                    </a>
-                                    <a class="carousel-control-next" href="#carousel-example-2" role="button" data-slide="next">
-                                        <span class="fa fa-angle-right icon-next" aria-hidden="true"></span>
-                                        <span class="sr-only">Próximo</span>
-                                    </a>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-sm-6 col-12 d-flex align-items-center">
-                            <div class="card-body">
-                                <div class="align-self-center" id="menu-navegacao">
-                                    <div class="px-3">
-                                        <h4 class="card-title mb-3">RENOVE A MATRÍCULA PARA 2021</h4>
-                                        <p class="card-text">CONHEÇA NOSSA ESCOLA E MATRICULE SEU FILHO</p>
-                                        <a href="#ficha_matricula" class="btn btn-success">Matricule agora</a>
+                            <div class="col-sm-6 col-12 d-flex align-items-center">
+                                <div class="card-body">
+                                    <div class="align-self-center" id="menu-navegacao">
+                                        <div class="px-3">
+                                            <h4 class="card-title mb-3">RENOVE A MATRÍCULA PARA 2021</h4>
+                                            <p class="card-text">CONHEÇA NOSSA ESCOLA E MATRICULE SEU FILHO</p>
+                                            <a href="#ficha_matricula" class="btn btn-success mt-2">Matricule agora</a>
+                                            <a href="{{ URL::asset('files/reajuste_2021.pdf') }}" class="btn bg-danger bg-darken-2 text-white mt-2">Valor da Mensalidade e Reajuste</a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -71,20 +73,20 @@
                 </div>
             </div>
         </div>
-        </div>
         
         <div class="row horizontal-form-layout">
-            <div class="col-xl-4 col-lg-6 col-12">
-                <div class="card card-inverse bg-warning">
+
+            <div class="col-xl-3 col-lg-6 col-12">
+                <div class="card card-inverse bg-success">
                     <div class="card-content">
                         <div class="card-body">
                             <div class="media">
                                 <div class="media-body text-left">
-                                    <h3 class="card-text">Rematrícula</h3>
-                                    <span>26/11/2020 à 08/12/2020</span>
+                                    <h3 class="card-text">Período de Rematrícula</h3>
+                                    <span>26/11/20 à 08/12/20</span>
                                 </div>
                                 <div class="media-right align-self-center">
-                                    <i class="ft-alert-triangle font-large-2 float-right"></i>
+                                    <i class="ft-refresh-cw font-large-2 float-right"></i>
                                 </div>
                             </div>
                         </div>
@@ -92,13 +94,13 @@
                 </div>    
             </div>
 
-            <div class="col-xl-4 col-lg-6 col-12">
-                <div class="card card-inverse bg-danger">
+            <div class="col-xl-3 col-lg-6 col-12">
+                <div class="card card-inverse bg-warning">
                     <div class="card-content">
                         <div class="card-body">
                             <div class="media">
                                 <div class="media-body text-left">
-                                    <h3 class="card-text">Novos Alunos:</h3>
+                                    <h3 class="card-text">Novos Alunos</h3>
                                     <span>A partir de 09/12/2020</span>
                                 </div>
                                 <div class="media-right align-self-center">
@@ -110,7 +112,25 @@
                 </div>    
             </div>
 
-            <div class="col-xl-4 col-lg-6 col-12">
+            <div class="col-xl-3 col-lg-6 col-12">
+                <div class="card card-inverse bg-danger">
+                    <div class="card-content">
+                        <div class="card-body">
+                            <div class="media">
+                                <div class="media-body text-left">
+                                    <h3 class="card-text">Valor dos Materiais</h3>
+                                    <a href="{{ URL::asset('files/material_didatico_2021.pdf') }}"><span>Clique aqui</span></a>
+                                </div>
+                                <div class="media-right align-self-center">
+                                    <i class="ft-dollar-sign font-large-2 float-right"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>    
+            </div>          
+
+            <div class="col-xl-3 col-lg-6 col-12">
                 <div class="card card-inverse bg-primary">
                     <div class="card-content">
                         <div class="card-body">
@@ -129,16 +149,6 @@
             </div>
 
         </div>
-
-        {{-- <div class="msg alert alert-warning alert-dismissible horizontal-form-layout mt-2">
-            <button type="button" class="close" data-dismiss="alert">×</button>
-            Período de Rematrícula: 26/11/2020 à 08/12/2020
-        </div>
-
-        <div class="msg alert alert-success alert-dismissible horizontal-form-layout">
-            <button type="button" class="close" data-dismiss="alert">×</button>
-            Início de Matrícula para Novos Alunos: 09/12/2020
-        </div> --}}
 
      <!-- Ficha de Matrícula -->
         <section id="ficha_matricula" class="horizontal-form-layout">
@@ -345,7 +355,7 @@
                                     <div class="col-md-3 col-12">
                                         <div class="form-group mb-2">
                                             <label for="pai_nascimento">Data de Nascimento</label>
-                                            <input type="date" maxlength="10" min="1979-12-31" id="pai_nascimento" class="form-control field_pai" name="pai_nascimento" >
+                                            <input type="date" maxlength="10" min="1900-12-31" max="2009-12-31" id="pai_nascimento" class="form-control field_pai" name="pai_nascimento" >
                                         </div>
                                     </div>
                                     <div class="col-md-6 col-12">
@@ -460,7 +470,7 @@
                                     <div class="col-md-3 col-12">
                                         <div class="form-group mb-2">
                                             <label for="mae_nascimento">Data de Nascimento</label>
-                                            <input type="date" maxlength="10" min="1979-12-31" id="mae_nascimento" class="form-control" name="mae_nascimento" required>
+                                            <input type="date" maxlength="10" min="1900-12-31" max="2009-12-31" id="mae_nascimento" class="form-control" name="mae_nascimento" required>
                                         </div>
                                     </div>
                                     <div class="col-md-6 col-12">
@@ -877,15 +887,14 @@
         @if (session()->has('message'))
             Swal.fire({
                 title: "Pré-Matrícula Confirmada!",
-                html: "Aguarde o prazo de 1 dia útil para dirigir-se ao Monteiro Lobato e assine o contrato de Matrícula.<br> Se preferir, " +
-                "agende através do What's App: 99115-5070, <br> ou " + 
+                html: "Agende a assinatura do contrato através do What's App: 99115-5070, ou " +
                 "<a href='https://api.whatsapp.com/send?phone=5594991155070' target='_blank'>clique aqui</a>",
                 type: "success",
                 confirmButtonClass: 'btn btn-success',
                 buttonsStyling: false,
             });
         @endif
-
+        //Aguarde o prazo de 1 dia útil para dirigir-se ao Monteiro Lobato e assine o contrato de Matrícula.<br>
     </script>
 
 @stop

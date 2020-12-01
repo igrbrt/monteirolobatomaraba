@@ -33,4 +33,6 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard/ver_aluno/{id}', [MatriculaController::class, 'getAluno'])->name('ver_aluno');
 
+Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard/imprimir/{id}', [MatriculaController::class, 'imprimir'])->name('imprimir');
+
 Route::middleware(['auth:sanctum', 'verified'])->post('/dashboard/ver_aluno/{id}/concluir', [MatriculaController::class, 'concluir'])->name('concluir');

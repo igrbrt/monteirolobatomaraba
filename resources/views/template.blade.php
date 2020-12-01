@@ -173,9 +173,9 @@
             <div class="logo-img"><img class="logo_pipa img-responsive" alt="Monteiro Lobato" title="Monteiro Lobato" src="{{URL::asset('app-assets/img/pipa.png')}}"></div>
             <div class="d-flex flex-column align-items-center">
                 <label class="col-form-label font-weight-bold">Instituto Educacional Monteiro Lobato</label>
-                <label class="font-weight-bold">Rua Boa Vista - Marabá - Pará</label>
-                <label class="font-weight-bold">68503-080</label>
-                <label class="font-weight-bold">Fone: 3324-1473</label>
+                <label class="font-weight-bold">R. das Mangueiras, 390 - Marabá - Pará</label>
+                <label class="font-weight-bold">68503-590</label>
+                <label class="font-weight-bold">Fone: (94) 3324-1473</label>
                 <label class="font-weight-bold">All Rights Reserved © <?php echo date("Y"); ?></label>
             </div>
         </footer>

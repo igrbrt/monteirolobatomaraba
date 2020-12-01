@@ -2,6 +2,7 @@
 
 @section('header')
 
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <style>
         .tabela{
@@ -506,8 +507,9 @@
 
 
         <div class="horizontal-form-layout text-right">
-            <button type="submit" class="btn text-white bg-danger bg-darken-2 mr-2" @if($matricula->status == 'Concluído') disabled @endif><i class="icon-lock mr-1"></i>Concluir</button>
-            <a href="{{ url('/dashboard') }}" class="btn btn-info mr-2"><i class="icon-arrow-left mr-1"></i> Voltar</a>
+            <button type="submit" class="btn btn-info mr-2" @if($matricula->status == 'Concluído') disabled @endif><i class="icon-lock mr-1"></i>Concluir</button>
+            <a href="{{ route('imprimir', [$aluno->id]) }}" target="_blank" class="btn btn-primary mr-2 imprimir"><i class="icon-printer mr-1"></i>Imprimir</button>
+            <a href="{{ url('/dashboard') }}" class="btn text-white bg-danger bg-darken-2 mr-2"><i class="icon-arrow-left mr-1"></i> Voltar</a>
         </div>
     </form>
 
@@ -516,6 +518,7 @@
 @section('footer')
 
     <script>
+        
         
 
     </script>

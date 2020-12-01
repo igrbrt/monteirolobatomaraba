@@ -1,0 +1,1032 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.16.0.final using JasperReports Library version 6.16.0-48579d909b7943b64690c65c71e07e0b80981928  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Blank_A4" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="62206098-2e88-404d-84f6-1f50d29bee48">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Monteiro"/>
+	<parameter name="DQ_UserInput" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[0]]></defaultValueExpression>
+	</parameter>
+	<queryString language="SQL">
+		<![CDATA[select mat.serie_periodo as serie, 
+			mat.curso as curso, mat.turno as turno,
+ 			a.nome as aluno_nome, 
+ 			a.data_nascimento as aluno_data_nascimento,
+ 			a.naturalidade as aluno_naturalidade,
+ 			a.sexo as sexo,
+ 			a.cor as cor,
+ 			a.endereco as aluno_endereco,
+ 			a.bairro as aluno_bairro,
+ 			a.cep as aluno_cep,
+ 			p.nome as pai_nome,
+ 			p.data_nascimento as pai_nascimento,
+ 			p.cpf as pai_cpf,
+ 			p.rg as pai_rg,
+ 			p.orgao_expedidor as pai_expedidor,
+ 			p.data_expedicao as pai_expedicao,
+ 			p.grau_instrucao as pai_instrucao,
+ 			p.email as pai_email,
+ 			p.celular as pai_celular,
+ 			p.local_trabalho as pai_trabalho,
+ 			p.profissao as pai_profissao,
+ 			p.telefone_trabalho as pai_tel_trabalho,
+ 			m.nome as mae_nome,
+ 			m.data_nascimento as mae_nascimento,
+ 			m.cpf as mae_cpf,
+ 			m.rg as mae_rg,
+ 			m.orgao_expedidor as mae_expedidor,
+ 			m.data_expedicao as mae_expedicao,
+ 			m.grau_instrucao as mae_instrucao,
+ 			m.email as mae_email,
+ 			m.celular as mae_celular,
+ 			m.local_trabalho as mae_trabalho,
+ 			m.profissao as mae_profissao,
+ 			m.telefone_trabalho as mae_tel_trabalho,
+ 			par1.nome as par_1_nome,
+ 			par1.celular as par_1_celular,
+			par2.nome as par_2_nome,
+ 			par2.celular as par_2_celular,
+ 			s.esclarecimento as esclarecimento,
+ 			s.quem_cuida as quem_cuida,
+ 			s.religiao as religiao,
+ 			s.n_irmaos as n_irmaos,
+ 			s.posicao_familia as posicao_familia,	
+			s.outras_informacoes as situacoes
+from matriculas mat
+inner join alunos a
+on a.id = mat.aluno_id
+left join pais p
+on p.id = a.pai_id
+inner join maes m
+on m.id = a.mae_id
+left join parentes par1
+on par1.id = a.parente_1_id
+left join parentes par2
+on par2.id = a.parente_2_id
+inner join situacoes s
+on s.id = a.situacoes_id
+where a.id = $P{DQ_UserInput}]]>
+	</queryString>
+	<field name="serie" class="java.lang.String"/>
+	<field name="curso" class="java.lang.String"/>
+	<field name="turno" class="java.lang.String"/>
+	<field name="aluno_nome" class="java.lang.String"/>
+	<field name="aluno_data_nascimento" class="java.lang.String"/>
+	<field name="aluno_naturalidade" class="java.lang.String"/>
+	<field name="sexo" class="java.lang.String"/>
+	<field name="cor" class="java.lang.String"/>
+	<field name="aluno_endereco" class="java.lang.String"/>
+	<field name="aluno_bairro" class="java.lang.String"/>
+	<field name="aluno_cep" class="java.lang.String"/>
+	<field name="pai_nome" class="java.lang.String"/>
+	<field name="pai_nascimento" class="java.lang.String"/>
+	<field name="pai_cpf" class="java.lang.String"/>
+	<field name="pai_rg" class="java.lang.String"/>
+	<field name="pai_expedidor" class="java.lang.String"/>
+	<field name="pai_expedicao" class="java.lang.String"/>
+	<field name="pai_instrucao" class="java.lang.String"/>
+	<field name="pai_email" class="java.lang.String"/>
+	<field name="pai_celular" class="java.lang.String"/>
+	<field name="pai_trabalho" class="java.lang.String"/>
+	<field name="pai_profissao" class="java.lang.String"/>
+	<field name="pai_tel_trabalho" class="java.lang.String"/>
+	<field name="mae_nome" class="java.lang.String"/>
+	<field name="mae_nascimento" class="java.lang.String"/>
+	<field name="mae_cpf" class="java.lang.String"/>
+	<field name="mae_rg" class="java.lang.String"/>
+	<field name="mae_expedidor" class="java.lang.String"/>
+	<field name="mae_expedicao" class="java.lang.String"/>
+	<field name="mae_instrucao" class="java.lang.String"/>
+	<field name="mae_email" class="java.lang.String"/>
+	<field name="mae_celular" class="java.lang.String"/>
+	<field name="mae_trabalho" class="java.lang.String"/>
+	<field name="mae_profissao" class="java.lang.String"/>
+	<field name="mae_tel_trabalho" class="java.lang.String"/>
+	<field name="par_1_nome" class="java.lang.String"/>
+	<field name="par_1_celular" class="java.lang.String"/>
+	<field name="par_2_nome" class="java.lang.String"/>
+	<field name="par_2_celular" class="java.lang.String"/>
+	<field name="esclarecimento" class="java.lang.String"/>
+	<field name="quem_cuida" class="java.lang.String"/>
+	<field name="religiao" class="java.lang.String"/>
+	<field name="n_irmaos" class="java.lang.String"/>
+	<field name="posicao_familia" class="java.lang.String"/>
+	<field name="situacoes" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="102" splitType="Stretch">
+			<rectangle>
+				<reportElement x="-12" y="0" width="580" height="81" uuid="b440ebcc-01b9-4d38-bd1e-6abda607f396"/>
+			</rectangle>
+			<image>
+				<reportElement x="20" y="14" width="80" height="53" uuid="5c3cc3aa-8364-423c-8c04-a10fbc6f720f"/>
+				<imageExpression><![CDATA["logo_pipa.png"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="170" y="6" width="230" height="20" uuid="bf3d7caa-3fb9-4683-b891-f86083759584"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Instituto Educacional Monteiro Lobato]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="165" y="25" width="240" height="25" uuid="8dc44d94-4820-4ebd-80ea-abe1fd5a58e8"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[R. das Mangueiras, 390 - CEP: 68503-590]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="189" y="44" width="182" height="17" uuid="b3bebd7c-b042-457c-8383-674058159e1a"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Marabá - PA - Fone: 3324-1473]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="223" y="62" width="123" height="20" uuid="a8d42715-49d8-4f6f-98a0-c9256191f2c2"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Ficha de Matrícula]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="500" y="6" width="63" height="20" uuid="86e05cc3-736d-4fcf-b083-860cb5df7d27"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="451" y="25" width="83" height="30" uuid="998b405e-6518-459c-955f-4cdfae8ffcb6"/>
+				<textElement textAlignment="Right">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Página " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="534" y="25" width="39" height="29" uuid="abac56ef-cf0c-4bbf-8458-d072d6ea5d0d"/>
+				<textElement textAlignment="Left">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" de " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="700" splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<rectangle>
+				<reportElement x="-12" y="-3" width="580" height="43" uuid="96f7d34e-8575-40c2-9564-7596ad032c92"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="10" y="11" width="70" height="22" uuid="e07558d9-ae98-4238-8bcc-beeb2c172c4b"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Ano 2021]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="240" y="11" width="40" height="22" uuid="7d180e99-4336-47e6-8a84-234d0624fa23"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Série:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="429" y="11" width="40" height="20" uuid="5f6bbbc8-5f23-489a-9586-1da3e4bc4320"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Turno:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="277" y="11" width="100" height="20" uuid="02647d9f-09cd-4ed0-88d7-df45463a10c7"/>
+				<textElement>
+					<font size="12" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{serie}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="469" y="11" width="92" height="18" uuid="fc46de2d-2cf6-41cf-9a74-1f40e530191e"/>
+				<textElement>
+					<font size="12" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{turno}]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement x="-12" y="48" width="580" height="89" uuid="97c3ea7a-751c-4628-b662-eb66a729b0d7"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="-12" y="48" width="580" height="18" uuid="69424950-1a50-49d6-a8ba-ee0f4ce9c4e7">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+			</rectangle>
+			<staticText>
+				<reportElement x="-10" y="48" width="190" height="22" uuid="acc7170c-2772-4f91-a9f6-9215e9832ad3"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[IDENTIFICAÇÃO DO ALUNO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="-9" y="67" width="43" height="19" uuid="5940b147-c03e-4c99-a158-45ff53be21a6"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nome:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="33" y="68" width="534" height="18" uuid="4980eb76-9ff3-449a-bdda-d2b23bf9122d"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{aluno_nome}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="-9" y="84" width="120" height="19" uuid="746c59bf-3850-470a-89f7-b6c9ad03a995"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Data de Nascimento:]]></text>
+			</staticText>
+			<textField pattern="d/M/yyyy">
+				<reportElement x="113" y="84" width="94" height="18" uuid="4b6a8954-640b-4469-ac00-b72ac1339c5f"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{aluno_data_nascimento}.substring(8,10)+"/"+$F{aluno_data_nascimento}.substring(5,7)+"/"+$F{aluno_data_nascimento}.substring(0,4)]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="198" y="85" width="79" height="18" uuid="7be71686-2b9b-48a8-b8a0-53f46f9121d7"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Naturalidade:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="433" y="85" width="36" height="22" uuid="627f0af3-ecd0-4f09-93fe-c6eabc798384"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Sexo:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="433" y="120" width="67" height="22" uuid="1e243b35-b4a5-4263-b6b0-74c2b20b3924"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Cor/Raça:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="-9" y="102" width="68" height="16" uuid="7c7c3868-b046-4b0e-84a1-462f00715dad"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Endereço:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="-9" y="120" width="43" height="16" uuid="7cad7f15-7eaf-4585-aecd-88a0bb3ae6b1"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Bairro:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="198" y="120" width="35" height="18" uuid="0849ff2f-32bb-4f20-86c3-f304b6b87e29"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CEP:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="280" y="85" width="150" height="20" uuid="8e8c1665-2da1-4916-96c2-a3f0a659d6c9"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{aluno_naturalidade}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="469" y="85" width="100" height="23" uuid="b1ee80a4-37b2-4705-adc4-609b22ab7bda"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{sexo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="54" y="102" width="512" height="19" uuid="34fd2b0d-434f-47b1-b588-c27f8fd1e91f"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{aluno_endereco}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="35" y="120" width="100" height="18" uuid="23249af2-a233-4257-88b1-3f5ea5f59fd4"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{aluno_bairro}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="231" y="120" width="100" height="30" uuid="1fa020a1-d8c9-42a7-9f58-63dc97b9e243"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{aluno_cep}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="492" y="120" width="78" height="16" uuid="f9c4a60e-c3c6-480d-b0b6-f642c20030e8"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cor}]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement x="-12" y="146" width="580" height="124" uuid="e8a38f8e-04b7-46d1-90ed-c079bb6c0032"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="-12" y="146" width="580" height="18" uuid="bbb6c6a8-e3a6-4a11-8824-0ddf56382c77">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+			</rectangle>
+			<staticText>
+				<reportElement x="-10" y="147" width="176" height="24" uuid="94487cf0-39f7-4764-af40-7c4f2dad4783"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DADOS DE FILIAÇÃO - PAI]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="-9" y="165" width="43" height="19" uuid="3cfb2e61-50b9-4769-8fc8-289e3282dbe5"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nome:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="-9" y="182" width="72" height="22" uuid="f6722558-2423-4aac-9052-badca9aef1b1"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Identidade:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="198" y="182" width="111" height="22" uuid="a328e1dc-0e48-4955-9bd9-d62109dcd03d"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Órgão Expedidor:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="434" y="182" width="35" height="22" uuid="93b2895b-131c-4ee1-bac8-97711d19c239"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Data:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="-9" y="201" width="28" height="22" uuid="b6b5297e-fd23-47a0-8d17-8680ebe72ca5"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CPF:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="198" y="201" width="122" height="22" uuid="7315d3f4-225c-42e3-9760-ae2c019e62d7">
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Data de Nascimento:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="-9" y="218" width="108" height="19" uuid="e693b7dd-e42e-4bdb-bb3a-3bff1bcf2dc4"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Grau de Instrução:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="408" y="218" width="62" height="22" uuid="9296e700-ea96-4c55-ae94-295ba9c4bb60">
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Profissão:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="-9" y="234" width="108" height="19" uuid="40c5b676-df38-4fb0-9258-c2141cfbc376"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Local de Trabalho:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="389" y="234" width="110" height="22" uuid="39310833-a9a5-4f1a-97a6-ee8ccd234b1d">
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Tel. Trabalho:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="422" y="250" width="48" height="18" uuid="de8e8dc6-ddba-4c41-aec3-46da9d3ecb2c">
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Celular:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="-9" y="250" width="48" height="18" uuid="ef4eb82f-adad-4012-a732-6cef89a7c371">
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[E-mail:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="33" y="165" width="532" height="19" uuid="8d4ef8e4-7e82-4e85-850f-6275523c8f70"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{pai_nome}  == null ? "" : $F{pai_nome}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="58" y="183" width="126" height="19" uuid="a00eebd0-d752-408b-aaf0-8e142682bd13"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{pai_rg}  == null ? "" : $F{pai_rg}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="303" y="183" width="136" height="19" uuid="f1069d51-6c37-478e-8a5e-cf9becef7fd9"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{pai_expedidor}  == null ? "" : $F{pai_expedidor}]]></textFieldExpression>
+			</textField>
+			<textField pattern="d/M/yyyy">
+				<reportElement x="466" y="183" width="99" height="18" uuid="cc6b2113-c347-47b7-aff0-04e85e1c0021"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{pai_expedicao}  == null ? "" : $F{pai_expedicao}.substring(8,10)+"/"+$F{pai_expedicao}.substring(5,7)+"/"+$F{pai_expedicao}.substring(0,4)]]></textFieldExpression>
+			</textField>
+			<textField pattern="d/M/yyyy">
+				<reportElement x="319" y="201" width="110" height="18" uuid="b5f558ce-9b5c-4ec3-8d6b-a376be7de47d"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{pai_nascimento}  == null ? "" : $F{pai_nascimento}.substring(8,10)+"/"+$F{pai_nascimento}.substring(5,7)+"/"+$F{pai_nascimento}.substring(0,4)]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="20" y="201" width="159" height="19" uuid="a7c85120-f1a2-46cd-b0d0-4eaa63bf012e"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{pai_cpf}  == null ? "" : $F{pai_cpf}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="468" y="250" width="98" height="19" uuid="53cd282d-a8ca-40f0-93f0-4aca648fdd6e">
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{pai_celular}  == null ? "" : $F{pai_celular}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="100" y="218" width="259" height="19" uuid="6193cf61-d21f-4537-93ee-08a4b387664a"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{pai_instrucao}  == null ? "" : $F{pai_instrucao}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="100" y="234" width="290" height="19" uuid="e081f0e0-1bee-41bb-b5f7-3ae4637d2199"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{pai_trabalho}  == null ? "" : $F{pai_trabalho}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="33" y="250" width="388" height="19" uuid="22eb1313-a955-45dd-a1d8-5e488be4531d"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{pai_email}  == null ? "" : $F{pai_email}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="468" y="218" width="98" height="19" uuid="245372ec-0117-4fb3-a569-5f045835b902"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{pai_profissao}  == null ? "" : $F{pai_profissao}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="468" y="234" width="100" height="19" uuid="c6cf05cb-50ee-43c6-b30c-2b4b83c76b8c"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{pai_tel_trabalho}  == null ? "" : $F{pai_tel_trabalho}]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement x="-12" y="280" width="580" height="124" uuid="3425c22c-3fd5-49eb-a8f4-2330b30d0b8b"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="-12" y="280" width="580" height="18" uuid="477e0c4b-7a1d-462f-8679-a34f667b80e7">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+			</rectangle>
+			<staticText>
+				<reportElement x="-10" y="281" width="208" height="24" uuid="4d982b0d-286c-4b64-b283-4113b88f267a"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DADOS DE FILIAÇÃO - MÃE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="-9" y="299" width="43" height="19" uuid="86807851-48fb-405d-b4de-80a114549cd9"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nome:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="-9" y="316" width="72" height="22" uuid="979d1231-132c-435c-82b7-551ae91951db"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Identidade:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="198" y="316" width="111" height="22" uuid="6234cfab-f717-4f87-b09f-7af2117e1417"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Órgão Expedidor:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="434" y="316" width="35" height="22" uuid="09a048cc-8a77-45c6-b6a9-7b8cd4331c9b"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Data:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="-9" y="335" width="28" height="22" uuid="9a95efd5-def4-4696-99da-692f429a0a62"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CPF:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="198" y="335" width="122" height="22" uuid="6c5b1ab6-efed-4950-ac91-7e6f4cb4e0d0">
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Data de Nascimento:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="-9" y="352" width="108" height="19" uuid="1503a867-be90-45c7-a7a9-be2aec83c995"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Grau de Instrução:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="408" y="352" width="62" height="22" uuid="77f3e259-6aee-4e2f-aedd-04755d9301e9">
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Profissão:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="-9" y="368" width="108" height="19" uuid="c683eb55-c06f-4cf8-93a9-2b6f91a8fa2c"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Local de Trabalho:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="389" y="368" width="110" height="22" uuid="d1dbdf60-0c4e-4585-be22-a3c7c7b45c3a">
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Tel. Trabalho:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="422" y="384" width="48" height="18" uuid="ce0a7837-b7d8-480c-9492-b81e42c91fd1">
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Celular:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="-9" y="384" width="48" height="18" uuid="34dd56f3-8693-443a-9fe4-9342612a9a42">
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[E-mail:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="33" y="299" width="532" height="19" uuid="81dca820-5169-40a1-933e-831ad669b11d"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{mae_nome}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="58" y="317" width="126" height="19" uuid="9c33bf2c-aea0-416b-a336-229836380cad"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{mae_rg}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="303" y="317" width="136" height="19" uuid="dc402137-f695-4f51-b5ec-8b396e61e63e"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{mae_expedidor}]]></textFieldExpression>
+			</textField>
+			<textField pattern="d/M/yyyy">
+				<reportElement x="466" y="317" width="99" height="18" uuid="65ecb66e-ea29-4157-91b3-403f6d3312b0"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{mae_expedicao}.substring(8,10)+"/"+$F{mae_expedicao}.substring(5,7)+"/"+$F{mae_expedicao}.substring(0,4)]]></textFieldExpression>
+			</textField>
+			<textField pattern="d/M/yyyy">
+				<reportElement x="319" y="335" width="110" height="18" uuid="0a4ce82f-0280-4346-91d7-644db14fd86b"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{mae_nascimento}.substring(8,10)+"/"+$F{mae_nascimento}.substring(5,7)+"/"+$F{mae_nascimento}.substring(0,4)]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="20" y="335" width="159" height="19" uuid="f87c7d96-0bfe-4e65-934e-b3f61a9e4ae8"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{mae_cpf}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="468" y="384" width="98" height="19" uuid="172e6210-0fd7-4fd2-9dd1-58e703d4aff1">
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{mae_celular}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="100" y="352" width="259" height="19" uuid="7668e307-99bb-4e53-b73d-282d0959a9a4"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{mae_instrucao}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="100" y="368" width="290" height="19" uuid="e17dbdef-6459-43d2-9a0c-7133395e076e"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{mae_trabalho}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="33" y="384" width="388" height="19" uuid="69a7f6e5-0c1b-4e28-879c-060e40973625"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{mae_email}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="468" y="352" width="98" height="19" uuid="45210053-fdfa-4a0c-9f9c-ad63993524ec"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{mae_profissao}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="468" y="368" width="100" height="19" uuid="670e1d0d-a46f-49b0-8f94-c6c9ae3e209c"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{mae_tel_trabalho}]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement x="-12" y="414" width="580" height="76" uuid="aa1d9864-102b-48c7-9a95-040422d2f5fd"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="-12" y="414" width="580" height="18" uuid="9bff6588-b973-437d-a6d5-a98e7aa82642">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+			</rectangle>
+			<staticText>
+				<reportElement x="-10" y="415" width="208" height="24" uuid="9759251d-54ae-4a1e-a66a-7af3f25caa5d"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[PARENTES PARA CONTATO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="-9" y="439" width="43" height="19" uuid="2ca41aaf-e34c-468b-93c2-84434e92f7d4"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nome:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="33" y="439" width="355" height="19" uuid="527665c2-6fb7-418d-9cc5-e4e5859404e5"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{par_1_nome}  == null ? "" : $F{par_1_nome}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="408" y="439" width="60" height="18" uuid="40b8d84b-4785-4214-a0a8-0c4bcc022902">
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Telefone:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="465" y="439" width="103" height="19" uuid="d0d9f68e-3c5a-495b-b85c-9737fe9fa4fb">
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{par_1_celular}  == null ? "" : $F{par_1_celular}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="-9" y="466" width="43" height="19" uuid="81822c64-8e7e-450e-81f7-a468595261b8"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nome:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="33" y="466" width="355" height="19" uuid="24161104-b702-4ae7-adab-b26f65383223"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{par_2_nome}  == null ? "" : $F{par_2_nome}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="408" y="466" width="60" height="18" uuid="a5903205-bb39-4fc1-82b7-7d28d801bd4e">
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Telefone:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="465" y="466" width="103" height="19" uuid="3e93aa51-fb23-4a4d-a695-0d2b6f5dc277">
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{par_2_celular}  == null ? "" : $F{par_2_celular}]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement x="-12" y="500" width="580" height="149" uuid="4f86acdd-d89e-47a5-ad9f-90f3cc6bf6f6"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="-12" y="500" width="580" height="18" uuid="a4d99fd0-6b98-47b7-9c20-2c43a69a5704">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+			</rectangle>
+			<staticText>
+				<reportElement x="-10" y="501" width="208" height="24" uuid="ffed449f-a273-4b0f-a89f-fb6cc728e070"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[SITUAÇÕES ESPECIAIS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="-9" y="519" width="574" height="40" uuid="735bfd62-02af-4b43-92ce-829641b5982e"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Esclarecer se os pais são adotivos, falecidos, separados, se a criança é educada por outra pessoa, etc.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="-9" y="602" width="173" height="19" uuid="174a658f-d0b9-4902-aab8-64cfa1ff5e12"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Quem cuida mais da criança?]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="323" y="601" width="116" height="22" uuid="b7328ec9-1372-47c6-b81b-febfb158b6e1"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Religião da família:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="-9" y="624" width="129" height="16" uuid="73c2356c-7805-427e-823b-7182a6a52eee"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Quantos irmãos tem?]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="261" y="624" width="173" height="16" uuid="a05b7578-f56d-4570-a1ff-0713cc58cebe"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Posição da criança na família:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="-9" y="550" width="570" height="50" uuid="5238ffe0-6c34-41c2-9761-e3838e7f43bc"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{esclarecimento}  == null ? "" : $F{esclarecimento}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="164" y="602" width="159" height="19" uuid="3288ca5d-46bd-4acb-bb3b-e4522f613682"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{quem_cuida}  == null ? "" : $F{quem_cuida}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="435" y="602" width="128" height="19" uuid="200c5586-5fad-4006-9aa3-f4f7c0fcc15d"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{religiao}  == null ? "" : $F{religiao}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="435" y="624" width="128" height="19" uuid="155c87e5-7e4b-4737-9b6d-742dd57ab109"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{posicao_familia}  == null ? "" : $F{posicao_familia}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="118" y="624" width="140" height="19" uuid="9edfea32-4513-4ba6-85e4-c4b2f6193580"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{n_irmaos}  == null ? "" : $F{n_irmaos}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnHeader>
+	<summary>
+		<band height="500">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<rectangle>
+				<reportElement x="-12" y="0" width="580" height="81" uuid="d761825e-4868-45f9-8e82-63ddde7e80c5"/>
+			</rectangle>
+			<image>
+				<reportElement x="20" y="14" width="80" height="53" uuid="5b622b54-8a38-412a-a88e-85d2b8792ed1"/>
+				<imageExpression><![CDATA["logo_pipa.png"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="170" y="6" width="230" height="20" uuid="9241da98-23d6-4aa4-8615-a453fafcc686"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Instituto Educacional Monteiro Lobato]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="165" y="25" width="240" height="25" uuid="c021cd50-5db4-4cbc-9f6e-d6e3d097fdb0"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[R. das Mangueiras, 390 - CEP: 68503-590]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="189" y="44" width="182" height="17" uuid="2757b10c-0acb-4c13-a8d0-c6c3eb22200d"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Marabá - PA - Fone: 3324-1473]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="223" y="62" width="123" height="20" uuid="c125ff6e-3e95-4a27-9aee-15f4cfc82d52"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Ficha de Matrícula]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="451" y="25" width="83" height="30" uuid="9c04dffd-f11b-4d2e-925b-af1c83ef7f7f"/>
+				<textElement textAlignment="Right">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Página " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="534" y="25" width="39" height="29" uuid="0eb04543-8d17-4c65-8062-325fe6c566cf"/>
+				<textElement textAlignment="Left">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" de " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="500" y="6" width="63" height="20" uuid="ee28b47b-a698-46a4-80fb-591f9dcc1c58"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement x="-12" y="91" width="580" height="124" uuid="eed786bd-3b05-41d1-a431-6b15c6045de5"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="-12" y="91" width="580" height="18" uuid="71f2de2a-1acb-4f09-8cb7-cbe9363b2874">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+			</rectangle>
+			<staticText>
+				<reportElement x="-10" y="93" width="310" height="16" uuid="b72edd02-a119-4d5b-bc8f-f09059bb9cbe"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[OUTRAS INFORMAÇÕES JULGADAS IMPORTANTES]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="-6" y="111" width="566" height="99" uuid="b25e5929-b22b-4680-8a74-89114717a9c1"/>
+				<textFieldExpression><![CDATA[$F{situacoes}  == null ? "" : $F{situacoes}]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement x="-12" y="225" width="580" height="124" uuid="47c2baef-2e3f-436e-b9f8-1cd560207b97"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="-12" y="225" width="580" height="18" uuid="49fd5dcc-8288-4a63-800f-6732ad4fe93d">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+			</rectangle>
+			<staticText>
+				<reportElement x="-10" y="227" width="570" height="16" uuid="f2a70abf-ed79-482c-a35b-dcbd9cddc77c"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DADOS DO RESPONSÁVEL PELO CONTRATO DE PRESTAÇÃO DE SERVIÇOS EDUCACIONAIS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="-6" y="250" width="128" height="18" uuid="075688f3-d3c2-4b35-9cac-c127b55228dc"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nome do Contratante:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="91" y="268" width="34" height="18" uuid="570ed1ff-ae56-42bd-977f-8c272d5b11f4"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CPF:]]></text>
+			</staticText>
+			<line>
+				<reportElement x="129" y="265" width="431" height="1" uuid="52a59b50-53dc-40bc-9c36-80934a0213e1">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+			</line>
+			<line>
+				<reportElement x="147" y="314" width="257" height="1" uuid="d919253e-ea76-4df1-a95b-3f4b0fc77e43">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+			</line>
+			<line>
+				<reportElement x="130" y="282" width="131" height="1" uuid="702b068b-d133-4e16-8518-ac0138a1c341">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+			</line>
+			<staticText>
+				<reportElement x="160" y="314" width="230" height="18" uuid="6d9a0ea8-48d0-461a-8938-ecc4d2c58a1f"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Assinatura do Pai/Mãe ou Responsável]]></text>
+			</staticText>
+		</band>
+	</summary>
+</jasperReport>
